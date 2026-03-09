@@ -1,6 +1,6 @@
 package it.unibo.pps.task2
 
-object Positive extends App:
+object Positive:
 
   val positiveVal: (Int => String) = _ match
     case n if n >= 0 => "positive"

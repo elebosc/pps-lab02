@@ -1,6 +1,6 @@
 package it.unibo.pps.task2
 
-object Neg extends App:
+object Neg:
 
   val empty: String => Boolean = _ == ""
 
