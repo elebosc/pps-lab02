@@ -31,3 +31,7 @@ object Values extends App:
 
   val u: Unit = () // a singleton type, only assuming () (or written {})
   val u2: Unit = println("a") // ...when output "doesn't care"
+
+  val l2: Long = 100_000  // casted to 100000L
+  val f2: Float = 3.0   // casted to 3.0F
+  val s2: String = "hello".concat(" to all") // alternative way to use concat
