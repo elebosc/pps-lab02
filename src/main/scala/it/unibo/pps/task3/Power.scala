@@ -3,6 +3,11 @@ package it.unibo.pps.task3
 object Power:
 
   def power(base: Double, exponent: Int): Double =
+    exponent match
+      case 0 => 1
+      case _ => base * power(base, exponent - 1)
+
+  def powerTail(base: Double, exponent: Int): Double =
     @annotation.tailrec
     def _power(e: Double, acc: Double): Double =
       e match
