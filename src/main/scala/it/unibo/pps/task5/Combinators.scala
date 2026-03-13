@@ -9,3 +9,10 @@ object Combinators:
     v match
       case Just(n) => Just(f(n))
       case Empty() => Empty()
+
+  def filter(v: OptionalInt)(p: Int => Boolean): OptionalInt =
+    v match
+      case Just(n) => n match
+        case x if p(x) => Just(x)
+        case _ => Empty()
+      case Empty() => Empty()
