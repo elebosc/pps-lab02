@@ -1,7 +1,7 @@
 package task3
 
 import it.unibo.pps.task3.Power.{power, powerTail}
-import org.junit.Assert.assertEquals
+import org.junit.Assert.{assertEquals, assertThrows}
 import org.junit.Test
 
 class PowerTest:
@@ -34,6 +34,11 @@ class PowerTest:
     val delta = 1e-9
     assertEquals(result, power(base, exp), delta)
 
+  @Test def testPowerThrowsAnExceptionIfExpIsNegative(): Unit =
+    val base = 2
+    val exp = -3
+    assertThrows(classOf[IllegalArgumentException], () => power(base, exp))
+
   @Test def testPowerTailWorksCorrectlyWithPositiveBase(): Unit =
     val base = 2.0
     val exp = 3
@@ -61,3 +66,8 @@ class PowerTest:
     val result = 1.0
     val delta = 1e-9
     assertEquals(result, powerTail(base, exp), delta)
+
+  @Test def testPowerTailThrowsAnExceptionIfExpIsNegative(): Unit =
+    val base = 2
+    val exp = -3
+    assertThrows(classOf[IllegalArgumentException], () => powerTail(base, exp))
