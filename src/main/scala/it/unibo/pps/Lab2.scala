@@ -33,7 +33,7 @@ object Lab2 extends App:
    * Task 2
    */
 
-  // Subtask 3a
+  // Subtask 1a
 
   val positiveVal: (Int => String) = _ match
     case n if n >= 0 => "positive"
@@ -43,7 +43,7 @@ object Lab2 extends App:
     case n if n >= 0 => "positive"
     case _ => "negative"
 
-  // Subtask 3b
+  // Subtask 1b
 
   val negVal: (String => Boolean) => (String => Boolean) =
     p => (s => !p(s))
@@ -51,7 +51,7 @@ object Lab2 extends App:
   def negMethod(p: String => Boolean): String => Boolean =
     s => !p(s)
 
-  // Subtask 4
+  // Subtask 2
 
   val p1: Int => Int => Int => Boolean =
     x => y => z => (x <= y && y == z)
@@ -63,7 +63,7 @@ object Lab2 extends App:
 
   def p4(x: Int, y: Int, z: Int): Boolean = (x <= y && y == z)
 
-  // Subtask 5
+  // Subtask 3
 
   def compose(f: Int => Int, g: Int => Int): Int => Int =
     x => f(g(x))
