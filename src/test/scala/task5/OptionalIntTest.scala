@@ -2,7 +2,7 @@ package task5
 
 import org.junit.*
 import org.junit.Assert.*
-import Optionals.*
+import it.unibo.pps.task5.Optionals.*
 
 class OptionalIntTest:
   @Test def emptyOptionalShouldBeEmpty(): Unit =
