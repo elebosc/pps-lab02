@@ -20,5 +20,3 @@ class OptionalIntTest:
   @Test def orElseShouldReturnValueWhenNonEmpty(): Unit =
     val empty = OptionalInt.Empty()
     assertEquals(1, OptionalInt.orElse(empty, 1))
-
-  /** Task 5: do test for map **/

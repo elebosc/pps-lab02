@@ -7,16 +7,16 @@ import org.junit.Assert.assertEquals
 
 class CombinatorsTest:
 
-  val f: Int => Int = _ + 1
-
   @Test def testEmptyValueIsMappedToEmpty(): Unit =
     val v = Empty()
+    val f: Int => Int = _ + 1
     val r = Empty()
     assertEquals(r, mapInt(v)(f))
 
   @Test def testValueIsTransformedCorrectly(): Unit =
     val n = 5
     val v = Just(n)
+    val f: Int => Int = _ + 1
     val r = Just(f(n))
     assertEquals(r, mapInt(v)(f))
 
