@@ -35,7 +35,7 @@ class PowerTest:
   @Test def testPowerThrowsAnExceptionIfExpIsNegative(): Unit =
     val base = 2
     val exp = -3
-    assertThrows(classOf[IllegalArgumentException], () => power(base, exp))
+    assertThrows(classOf[MatchError], () => power(base, exp))
 
   @Test def testPowerTailWorksCorrectlyWithPositiveBase(): Unit =
     val base = 2.0
@@ -64,4 +64,4 @@ class PowerTest:
   @Test def testPowerTailThrowsAnExceptionIfExpIsNegative(): Unit =
     val base = 2
     val exp = -3
-    assertThrows(classOf[IllegalArgumentException], () => powerTail(base, exp))
+    assertThrows(classOf[MatchError], () => powerTail(base, exp))

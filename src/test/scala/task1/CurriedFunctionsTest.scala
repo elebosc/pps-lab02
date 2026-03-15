@@ -35,7 +35,7 @@ class CurriedFunctionsTest:
   @Test def testDivideByZeroThrowsAnException(): Unit =
     val n = 15
     val d = 0
-    assertThrows(classOf[IllegalArgumentException], () => divide(n, d))
+    assertThrows(classOf[ArithmeticException], () => divide(n, d))
 
   @Test def testCurriedDivideReturnsCorrectResultWithBothTermsPositive(): Unit =
     val n = 15
@@ -64,4 +64,4 @@ class CurriedFunctionsTest:
   @Test def testCurriedDivideByZeroThrowsAnException(): Unit =
     val n = 15
     val d = 0
-    assertThrows(classOf[IllegalArgumentException], () => curriedDivide(n)(d))
+    assertThrows(classOf[ArithmeticException], () => curriedDivide(n)(d))

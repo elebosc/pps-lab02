@@ -12,7 +12,6 @@ object Combinators:
 
   def filter(v: OptionalInt)(p: Int => Boolean): OptionalInt =
     v match
-      case Just(n) => n match
-        case x if p(x) => Just(x)
-        case _ => Empty()
       case Empty() => Empty()
+      case Just(n) if p(n) => Just(n)
+      case _ => Empty()

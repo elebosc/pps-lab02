@@ -11,23 +11,26 @@ object Lab2 extends App:
 
   // Subtask 1
 
-  def HelloWorld(): Unit = println("Hello, world!")
+  def HelloWorld(): Unit =
+    println("Hello, world!")
 
   // Subtask 2
 
-  def mult(x: Double, y: Double): Double = x * y
+  def mult(x: Double, y: Double): Double =
+    x * y
 
-  def curriedMult(x: Double)(y: Double): Double = x * y
+  def curriedMult(x: Double)(y: Double): Double =
+    x * y
 
   def divide(x: Double, y: Double): Double =
     y match
       case d if d != 0 => x / d
-      case _ => throw IllegalArgumentException("Divider cannot be zero.")
+      case _ => throw ArithmeticException("Divider cannot be zero.")
 
   def curriedDivide(x: Double)(y: Double): Double =
     y match
       case d if d != 0 => x / d
-      case _ => throw IllegalArgumentException("Divider cannot be zero.")
+      case _ => throw ArithmeticException("Divider cannot be zero.")
 
   /*
    * Task 2
@@ -35,18 +38,20 @@ object Lab2 extends App:
 
   // Subtask 1a
 
-  val positiveVal: (Int => String) = _ match
-    case n if n >= 0 => "positive"
-    case _ => "negative"
+  val positiveVal: (Int => String) =
+    _ match
+      case n if n >= 0 => "positive"
+      case _ => "negative"
 
-  def positiveMethod(x: Int): String = x match
-    case n if n >= 0 => "positive"
-    case _ => "negative"
+  def positiveMethod(x: Int): String =
+    x match
+      case n if n >= 0 => "positive"
+      case _ => "negative"
 
   // Subtask 1b
 
-  val negVal: (String => Boolean) => (String => Boolean) =
-    p => (s => !p(s))
+  val negVal: (String => Boolean) => String => Boolean =
+    p => s => !p(s)
 
   def negMethod(p: String => Boolean): String => Boolean =
     s => !p(s)
@@ -54,14 +59,16 @@ object Lab2 extends App:
   // Subtask 2
 
   val p1: Int => Int => Int => Boolean =
-    x => y => z => (x <= y && y == z)
+    x => y => z => x <= y && y == z
 
   val p2: (Int, Int, Int) => Boolean =
-    (x, y, z) => (x <= y && y == z)
+    (x, y, z) => x <= y && y == z
 
-  def p3(x: Int)(y: Int)(z: Int): Boolean = (x <= y && y == z)
+  def p3(x: Int)(y: Int)(z: Int): Boolean =
+    x <= y && y == z
 
-  def p4(x: Int, y: Int, z: Int): Boolean = (x <= y && y == z)
+  def p4(x: Int, y: Int, z: Int): Boolean =
+    x <= y && y == z
 
   // Subtask 3
 
@@ -78,7 +85,6 @@ object Lab2 extends App:
     exponent match
       case e if e > 0 => base * power(base, exponent - 1)
       case 0 => 1
-      case _ => throw IllegalArgumentException("Exponent cannot be negative.")
 
   def powerTail(base: Double, exponent: Int): Double =
     @annotation.tailrec
@@ -88,7 +94,6 @@ object Lab2 extends App:
         case _ => _power(e - 1, base * acc)
     exponent match
       case e if e >= 0 => _power(exponent, 1)
-      case _ => throw IllegalArgumentException("Exponent cannot be negative.")
 
   // Subtask 2
 
@@ -137,7 +142,6 @@ object Lab2 extends App:
 
   def filter(v: OptionalInt)(p: Int => Boolean): OptionalInt =
     v match
-      case Just(n) => n match
-        case x if p(x) => Just(x)
-        case _ => Empty()
       case Empty() => Empty()
+      case Just(n) if p(n) => Just(n)
+      case _ => Empty()
